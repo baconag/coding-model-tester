@@ -122,8 +122,9 @@ async function testSingleRoundOpenAI(provider, model, prompt, timeoutMs) {
             break;
           }
           const delta = json.choices?.[0]?.delta;
-          if (firstTokenTime === null && delta && (delta.role || delta.content)) firstTokenTime = Date.now();
+          if (firstTokenTime === null && delta && (delta.role || delta.content || delta.reasoning_content)) firstTokenTime = Date.now();
           if (delta?.content) fullText += delta.content;
+          if (delta?.reasoning_content) fullText += delta.reasoning_content;
           if (json.usage) totalTokens = json.usage.total_tokens || json.usage.completion_tokens || 0;
         } catch (e) {}
       }
