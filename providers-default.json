@@ -89,15 +89,47 @@
         { "id": "MiniMax-M2.5", "name": "MiniMax M2.5" }
       ]
     },
-    "tencent": {
-      "name": "腾讯混元 (Hunyuan)",
+    "tencent-coding": {
+      "name": "腾讯云 Coding Plan (TokenHub)",
+      "baseUrl": "https://api.lkeap.cloud.tencent.com/coding/v3",
+      "apiFormat": "openai",
+      "endpointPath": "/chat/completions",
+      "models": [
+        { "id": "tc-code-latest", "name": "Auto (智能路由)" },
+        { "id": "glm-5", "name": "GLM 5" },
+        { "id": "kimi-k2.5", "name": "Kimi K2.5" },
+        { "id": "minimax-m2.5", "name": "MiniMax M2.5" },
+        { "id": "hunyuan-t1", "name": "Hunyuan T1" },
+        { "id": "hunyuan-turbos", "name": "Hunyuan TurboS" },
+        { "id": "hunyuan-2.0-instruct", "name": "HY 2.0 Instruct" },
+        { "id": "hunyuan-2.0-thinking", "name": "HY 2.0 Thinking" }
+      ]
+    },
+    "tencent-coding-anthropic": {
+      "name": "腾讯云 Coding Plan (Anthropic 協议)",
+      "baseUrl": "https://api.lkeap.cloud.tencent.com/coding/anthropic",
+      "apiFormat": "anthropic",
+      "endpointPath": "/v1/messages",
+      "models": [
+        { "id": "tc-code-latest", "name": "Auto (智能路由)" },
+        { "id": "glm-5", "name": "GLM 5" },
+        { "id": "kimi-k2.5", "name": "Kimi K2.5" },
+        { "id": "minimax-m2.5", "name": "MiniMax M2.5" },
+        { "id": "hunyuan-t1", "name": "Hunyuan T1" },
+        { "id": "hunyuan-turbos", "name": "Hunyuan TurboS" },
+        { "id": "hunyuan-2.0-instruct", "name": "HY 2.0 Instruct" },
+        { "id": "hunyuan-2.0-thinking", "name": "HY 2.0 Thinking" }
+      ]
+    },
+    "tencent-hunyuan": {
+      "name": "腾讯混元 (Hunyuan 官方 API)",
       "baseUrl": "https://api.hunyuan.cloud.tencent.com/v1",
       "apiFormat": "openai",
       "endpointPath": "/chat/completions",
       "models": [
         { "id": "hunyuan-turbos-latest", "name": "Hunyuan TurboS" },
         { "id": "hunyuan-t1-latest", "name": "Hunyuan T1 (推理)" },
-        { "id": "hunyuan-a13b", "name": "Hunyuan A13B (混合推理)" },
+        { "id": "hunyuan-a13b", "name": "Hunyuan A13B" },
         { "id": "hunyuan-large", "name": "Hunyuan Large" },
         { "id": "hunyuan-standard", "name": "Hunyuan Standard" },
         { "id": "hunyuan-lite", "name": "Hunyuan Lite (免费)" },

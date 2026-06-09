@@ -1,6 +1,6 @@
 # 🚀 Coding Model Tester
 
-> **多服务商 LLM 编码性能基准测试工具** · 流式测试 · 实时打分 · 内置 18 个主流服务商
+> **多服务商 LLM 编码性能基准测试工具** · 流式测试 · 实时打分 · 内置 20 个主流服务商
 
 [English](./README_EN.md) · 中文
 
@@ -12,7 +12,7 @@
 
 ## ✨ 特性亮点
 
-- 🌐 **18 个内置服务商** — 千帆 / 火山方舟 / DeepSeek / 月之暗面 / 通义千问 / 智谱 GLM / MiniMax / 腾讯混元 / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
+- 🌐 **20 个内置服务商** — 千帆 / 火山方舟 / 腾讯云 Coding Plan / DeepSeek / 月之暗面 / 通义千问 / 智谱 GLM / MiniMax / 腾讯混元 / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
 - 🔌 **三种 API 协议** — OpenAI / Anthropic / Gemini，自动适配
 - 📊 **完整性能指标** — 总耗时、首字延迟 (TTFB)、吞吐量 (tok/s)、成功率、错误诊断
 - 🏆 **智能综合打分** — 成功率(25%) + 速度(35%) + TTFB(20%) + 吞吐(20%)，并排名
@@ -89,7 +89,9 @@ npm start
 | 阿里通义 Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
 | 智谱 GLM | anthropic | `open.bigmodel.cn/api/anthropic` | |
 | MiniMax | anthropic | `api.minimaxi.com/anthropic` | |
-| 腾讯混元 (Hunyuan) | openai | `api.hunyuan.cloud.tencent.com/v1` | 腾讯云官方混元大模型 |
+| 腾讯云 Coding Plan (OpenAI) | openai | `api.lkeap.cloud.tencent.com/coding/v3` | TokenHub 编码套餐，聚合 GLM/Kimi/MiniMax/HY |
+| 腾讯云 Coding Plan (Anthropic) | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | 同上，不同協议 |
+| 腾讯混元 (官方 API) | openai | `api.hunyuan.cloud.tencent.com/v1` | Hunyuan 全系列通用套餐 |
 | 阶跃 StepFun | openai | `api.stepfun.com/v1` | |
 | 小米 MiMo | anthropic | `api.xiaomimimo.com/anthropic` | |
 | 有道智云 | openai | `openapi.youdao.com/llmgateway/api/v1` | |

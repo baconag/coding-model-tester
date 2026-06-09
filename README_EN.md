@@ -1,6 +1,6 @@
 # 🚀 Coding Model Tester
 
-> **Multi-provider LLM coding benchmark tool** · Streaming · Real-time scoring · 18 providers built-in
+> **Multi-provider LLM coding benchmark tool** · Streaming · Real-time scoring · 20 providers built-in
 
 English · [中文](./README.md)
 
@@ -12,7 +12,7 @@ English · [中文](./README.md)
 
 ## ✨ Highlights
 
-- 🌐 **18 built-in providers** — Qianfan / Volcengine Ark / DeepSeek / Moonshot / Qwen / Zhipu GLM / MiniMax / Tencent Hunyuan / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
+- 🌐 **20 built-in providers** — Qianfan / Volcengine Ark / Tencent Coding Plan / DeepSeek / Moonshot / Qwen / Zhipu GLM / MiniMax / Tencent Hunyuan / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
 - 🔌 **Three API formats** — OpenAI / Anthropic / Gemini, auto-detected per provider
 - 📊 **Complete metrics** — Total time, TTFB (time-to-first-byte), throughput (tok/s), success rate, error details
 - 🏆 **Smart composite scoring** — SuccessRate(25%) + Speed(35%) + TTFB(20%) + Throughput(20%), with rankings
@@ -89,7 +89,9 @@ Pick a provider from the dropdown → tick the models to compare → **Start**.
 | Alibaba Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
 | Zhipu GLM | anthropic | `open.bigmodel.cn/api/anthropic` | |
 | MiniMax | anthropic | `api.minimaxi.com/anthropic` | |
-| Tencent Hunyuan | openai | `api.hunyuan.cloud.tencent.com/v1` | Tencent Cloud official LLM |
+| Tencent Cloud Coding Plan (OpenAI) | openai | `api.lkeap.cloud.tencent.com/coding/v3` | TokenHub coding plan, aggregates GLM/Kimi/MiniMax/HY |
+| Tencent Cloud Coding Plan (Anthropic) | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | Same plan, Anthropic protocol |
+| Tencent Hunyuan (official API) | openai | `api.hunyuan.cloud.tencent.com/v1` | Full Hunyuan model lineup |
 | StepFun | openai | `api.stepfun.com/v1` | |
 | Xiaomi MiMo | anthropic | `api.xiaomimimo.com/anthropic` | |
 | Youdao | openai | `openapi.youdao.com/llmgateway/api/v1` | |
