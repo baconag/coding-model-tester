@@ -95,3 +95,15 @@ select:focus,input:focus{outline:none;border-color:var(--accent)}
 .toast.err{border-left-color:var(--red)}
 .help{font-size:11px;color:var(--text-dim);margin-top:4px}
 .section-title{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.5px;margin:14px 0 8px}
+
+/* ===== Provider 徽章 ===== */
+.badge{display:inline-block;font-size:10.5px;font-weight:600;line-height:1;padding:3px 7px;border-radius:10px;border:1px solid transparent;letter-spacing:.2px;white-space:nowrap;vertical-align:middle}
+.badge-coding{background:rgba(163,113,247,.14);color:#c8a8ff;border-color:rgba(163,113,247,.35)}
+.badge-aggr{background:rgba(88,166,255,.13);color:#79b8ff;border-color:rgba(88,166,255,.35)}
+.badge-local{background:rgba(139,148,158,.13);color:#b0b8c0;border-color:rgba(139,148,158,.35)}
+.badge-openai{background:rgba(63,185,80,.12);color:#7ee787;border-color:rgba(63,185,80,.35)}
+.badge-anthropic{background:rgba(219,109,40,.13);color:#ffa657;border-color:rgba(219,109,40,.35)}
+.badge-gemini{background:rgba(88,166,255,.12);color:#79b8ff;border-color:rgba(88,166,255,.35)}
+.provider-card-head .title .brand-name{font-size:14px;font-weight:600;color:var(--text)}
+.provider-card-head .pid-hint{font-size:10.5px;color:var(--text-dim);font-weight:400;margin-left:auto;padding-left:8px}
+#providerKeyStatus{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}

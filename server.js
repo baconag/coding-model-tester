@@ -40,6 +40,8 @@ function getMergedProviders() {
     out[id] = {
       id,
       name: u.name || d.name,
+      brand: d.brand || d.name,
+      tags: Array.isArray(d.tags) ? d.tags.slice() : [],
       baseUrl: u.baseUrl || d.baseUrl,
       apiFormat: u.apiFormat || d.apiFormat,
       endpointPath: u.endpointPath !== undefined ? u.endpointPath : (d.endpointPath || ''),
@@ -56,6 +58,8 @@ function getMergedProviders() {
     out[id] = {
       id,
       name: u.name || id,
+      brand: u.brand || u.name || id,
+      tags: Array.isArray(u.tags) ? u.tags.slice() : [],
       baseUrl: u.baseUrl || '',
       apiFormat: u.apiFormat || 'openai',
       endpointPath: u.endpointPath || '',
@@ -302,7 +306,8 @@ function summarize(model, results) {
 app.get('/api/providers', (req, res) => {
   const merged = getMergedProviders();
   const list = Object.values(merged).map(p => ({
-    id: p.id, name: p.name, baseUrl: p.baseUrl, endpointPath: p.endpointPath,
+    id: p.id, name: p.name, brand: p.brand, tags: p.tags || [],
+    baseUrl: p.baseUrl, endpointPath: p.endpointPath,
     apiFormat: p.apiFormat, noAuth: p.noAuth, enabled: p.enabled,
     hasKey: !!p.apiKey, custom: !!p.custom, models: p.models
   }));

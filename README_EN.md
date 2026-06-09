@@ -80,27 +80,27 @@ Pick a provider from the dropdown → tick the models to compare → **Start**.
 
 ## 📋 Built-in Providers
 
-| Provider | Format | Default URL | Notes |
-|----------|--------|-------------|-------|
-| Baidu Qianfan (Coding Plan) | openai | `qianfan.baidubce.com/v2/coding` | Baidu coding-exclusive plan |
-| Volcengine Ark (Coding Plan) | anthropic | `ark.cn-beijing.volces.com/api/coding` | ByteDance Doubao coding plan |
+| Provider | Format | Default URL | Tags |
+|----------|--------|-------------|------|
+| Baidu Qianfan | openai | `qianfan.baidubce.com/v2/coding` | `Coding Plan` |
+| Volcengine Ark | anthropic | `ark.cn-beijing.volces.com/api/coding` | `Coding Plan` |
+| Tencent Cloud TokenHub | openai | `api.lkeap.cloud.tencent.com/coding/v3` | `Coding Plan` |
+| Tencent Cloud TokenHub | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | `Coding Plan` |
 | DeepSeek | anthropic | `api.deepseek.com/anthropic` | |
 | Moonshot Kimi | openai | `api.moonshot.cn/v1` | |
 | Alibaba Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
 | Zhipu GLM | anthropic | `open.bigmodel.cn/api/anthropic` | |
 | MiniMax | anthropic | `api.minimaxi.com/anthropic` | |
-| Tencent Cloud Coding Plan (OpenAI) | openai | `api.lkeap.cloud.tencent.com/coding/v3` | TokenHub coding plan, aggregates GLM/Kimi/MiniMax/HY |
-| Tencent Cloud Coding Plan (Anthropic) | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | Same plan, Anthropic protocol |
 | StepFun | openai | `api.stepfun.com/v1` | |
 | Xiaomi MiMo | anthropic | `api.xiaomimimo.com/anthropic` | |
 | Youdao | openai | `openapi.youdao.com/llmgateway/api/v1` | |
 | OpenAI | openai | `api.openai.com/v1` | |
 | Anthropic | anthropic | `api.anthropic.com` | |
 | Google Gemini | gemini | `generativelanguage.googleapis.com/v1beta` | |
-| OpenRouter | openai | `openrouter.ai/api/v1` | Aggregator |
+| OpenRouter | openai | `openrouter.ai/api/v1` | `Aggregator` |
 | GitHub Copilot | openai | `api.individual.githubcopilot.com` | |
-| Ollama | openai | `localhost:11434/v1` | Local, no key |
-| LM Studio | openai | `localhost:1234/v1` | Local, no key |
+| Ollama | openai | `localhost:11434/v1` | `Local` |
+| LM Studio | openai | `localhost:1234/v1` | `Local` |
 
 > Want more? Just edit [providers-default.json](./providers-default.json) — no code changes.
 

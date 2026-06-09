@@ -80,27 +80,27 @@ npm start
 
 ## 📋 内置服务商一览
 
-| 服务商 | 协议 | 默认 URL | 备注 |
+| 服务商 | 协议 | 默认 URL | 标签 |
 |--------|------|---------|------|
-| 百度千帆 (Coding Plan) | openai | `qianfan.baidubce.com/v2/coding` | 百度独享编程套餐 |
-| 火山方舟 Ark (Coding Plan) | anthropic | `ark.cn-beijing.volces.com/api/coding` | 字节跳动豆包编码套餐 |
+| 百度千帆 | openai | `qianfan.baidubce.com/v2/coding` | `Coding Plan` |
+| 火山方舟 Ark | anthropic | `ark.cn-beijing.volces.com/api/coding` | `Coding Plan` |
+| 腾讯云 TokenHub | openai | `api.lkeap.cloud.tencent.com/coding/v3` | `Coding Plan` |
+| 腾讯云 TokenHub | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | `Coding Plan` |
 | DeepSeek | anthropic | `api.deepseek.com/anthropic` | |
 | Moonshot Kimi | openai | `api.moonshot.cn/v1` | |
 | 阿里通义 Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
 | 智谱 GLM | anthropic | `open.bigmodel.cn/api/anthropic` | |
 | MiniMax | anthropic | `api.minimaxi.com/anthropic` | |
-| 腾讯云 Coding Plan (OpenAI) | openai | `api.lkeap.cloud.tencent.com/coding/v3` | TokenHub 编码套餐，聚合 GLM/Kimi/MiniMax/HY |
-| 腾讯云 Coding Plan (Anthropic) | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | 同上，不同協议 |
 | 阶跃 StepFun | openai | `api.stepfun.com/v1` | |
 | 小米 MiMo | anthropic | `api.xiaomimimo.com/anthropic` | |
 | 有道智云 | openai | `openapi.youdao.com/llmgateway/api/v1` | |
 | OpenAI | openai | `api.openai.com/v1` | |
 | Anthropic | anthropic | `api.anthropic.com` | |
 | Google Gemini | gemini | `generativelanguage.googleapis.com/v1beta` | |
-| OpenRouter | openai | `openrouter.ai/api/v1` | 聚合多家 |
+| OpenRouter | openai | `openrouter.ai/api/v1` | `聚合` |
 | GitHub Copilot | openai | `api.individual.githubcopilot.com` | |
-| Ollama | openai | `localhost:11434/v1` | 本地，无需 Key |
-| LM Studio | openai | `localhost:1234/v1` | 本地，无需 Key |
+| Ollama | openai | `localhost:11434/v1` | `本地` |
+| LM Studio | openai | `localhost:1234/v1` | `本地` |
 
 > 想加更多？编辑 [providers-default.json](./providers-default.json) 即可，无需改代码。
 

@@ -20,6 +20,32 @@ function toast(msg, isErr) {
 function fmtMs(ms) { if (ms == null) return '--'; if (ms < 1000) return Math.round(ms) + 'ms'; return (ms / 1000).toFixed(2) + 's'; }
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
+// ============ 徽章渲染 ============
+function providerBadges(p) {
+  var parts = [];
+  if (p.tags && p.tags.indexOf('coding-plan') >= 0) parts.push('<span class="badge badge-coding">Coding Plan</span>');
+  if (p.tags && p.tags.indexOf('aggregator') >= 0) parts.push('<span class="badge badge-aggr">聚合</span>');
+  if (p.tags && p.tags.indexOf('local') >= 0) parts.push('<span class="badge badge-local">本地</span>');
+  var fmt = (p.apiFormat || '').toLowerCase();
+  if (fmt === 'openai') parts.push('<span class="badge badge-openai">OpenAI</span>');
+  else if (fmt === 'anthropic') parts.push('<span class="badge badge-anthropic">Anthropic</span>');
+  else if (fmt === 'gemini') parts.push('<span class="badge badge-gemini">Gemini</span>');
+  return parts.join(' ');
+}
+
+function providerOptionText(p) {
+  // <option> 不支持 HTML，用纯文本符号
+  var brand = p.brand || p.name;
+  var bits = [];
+  if (p.tags && p.tags.indexOf('coding-plan') >= 0) bits.push('Coding Plan');
+  if (p.apiFormat === 'openai') bits.push('OpenAI');
+  else if (p.apiFormat === 'anthropic') bits.push('Anthropic');
+  else if (p.apiFormat === 'gemini') bits.push('Gemini');
+  var sub = bits.length ? '  ·  ' + bits.join(' / ') : '';
+  var marker = p.noAuth ? '  · 本地' : (p.hasKey ? '' : '  ⚠');
+  return brand + sub + marker;
+}
+
 // ============ 加载 providers ============
 function loadProviders() {
   return fetch('/api/providers').then(function (r) { return r.json(); }).then(function (data) {
@@ -31,8 +57,7 @@ function loadProviders() {
       PROVIDERS[p.id] = p;
       var opt = document.createElement('option');
       opt.value = p.id;
-      var marker = p.noAuth ? ' · 本地' : (p.hasKey ? '' : ' ⚠⚠⚠');
-      opt.textContent = p.name + marker;
+      opt.textContent = providerOptionText(p);
       sel.appendChild(opt);
     });
     if (prev && PROVIDERS[prev]) sel.value = prev;
@@ -52,9 +77,12 @@ function loadProviderModels() {
   if (!p) return;
   MODELS = (p.models || []).map(function (m) { return m.id; });
   var status = document.getElementById('providerKeyStatus');
-  if (p.noAuth) status.innerHTML = '<span class="provider-ok">本地服务·无需 KEY</span>';
-  else if (p.hasKey) status.innerHTML = '<span class="provider-ok">KEY 已配置</span>';
-  else status.innerHTML = '<span class="provider-warn">⚠ 未配置 API KEY</span>';
+  var badges = providerBadges(p);
+  var keyTag;
+  if (p.noAuth) keyTag = '<span class="provider-ok">无需 KEY</span>';
+  else if (p.hasKey) keyTag = '<span class="provider-ok">KEY ✓</span>';
+  else keyTag = '<span class="provider-warn">⚠ 未配置 KEY</span>';
+  status.innerHTML = badges + ' &nbsp; ' + keyTag;
   if (MODELS.length === 0) {
     document.getElementById('checkRow').innerHTML = '<span style="color:var(--text-dim);font-size:12px">该服务商暂无模型，请在设置中添加。</span>';
   } else {
@@ -259,7 +287,7 @@ function renderSettings(focusId) {
     var expanded = focusId && p.id === focusId;
     html += '<div class="provider-card' + (expanded ? ' expanded' : '') + '" data-pid="' + esc(p.id) + '">';
     html += '  <div class="provider-card-head" onclick="toggleCard(\'' + esc(p.id) + '\')">';
-    html += '    <div class="title"><span class="arrow">▶</span><span>' + esc(p.name) + '</span><span style="font-size:11px;color:var(--text-dim);font-weight:400">[' + esc(p.id) + ' · ' + esc(p.apiFormat) + ']</span>' + providerStatusTag(p) + '</div>';
+    html += '    <div class="title"><span class="arrow">▶</span><span class="brand-name">' + esc(p.brand || p.name) + '</span>' + providerBadges(p) + providerStatusTag(p) + '<span class="pid-hint">' + esc(p.id) + '</span></div>';
     html += '    <div style="font-size:11px;color:var(--text-dim)">' + (p.models ? p.models.length : 0) + ' models</div>';
     html += '  </div>';
     html += '  <div class="provider-card-body">' + renderProviderForm(p) + '</div>';
