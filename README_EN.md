@@ -83,7 +83,7 @@ Pick a provider from the dropdown → tick the models to compare → **Start**.
 | Provider | Format | Default URL | Notes |
 |----------|--------|-------------|-------|
 | Baidu Qianfan (Coding Plan) | openai | `qianfan.baidubce.com/v2/coding` | Baidu coding-exclusive plan |
-| Volcengine Ark | anthropic | `ark.cn-beijing.volces.com/api/compatible` | ByteDance Doubao |
+| Volcengine Ark (Coding Plan) | anthropic | `ark.cn-beijing.volces.com/api/coding` | ByteDance Doubao coding plan |
 | DeepSeek | anthropic | `api.deepseek.com/anthropic` | |
 | Moonshot Kimi | openai | `api.moonshot.cn/v1` | |
 | Alibaba Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |

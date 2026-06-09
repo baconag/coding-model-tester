@@ -21,8 +21,8 @@
       ]
     },
     "volcengine": {
-      "name": "火山方舟 Ark",
-      "baseUrl": "https://ark.cn-beijing.volces.com/api/compatible",
+      "name": "火山方舟 Ark (Coding Plan)",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
       "apiFormat": "anthropic",
       "endpointPath": "/v1/messages",
       "models": [

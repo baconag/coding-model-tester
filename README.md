@@ -83,7 +83,7 @@ npm start
 | 服务商 | 协议 | 默认 URL | 备注 |
 |--------|------|---------|------|
 | 百度千帆 (Coding Plan) | openai | `qianfan.baidubce.com/v2/coding` | 百度独享编程套餐 |
-| 火山方舟 Ark | anthropic | `ark.cn-beijing.volces.com/api/compatible` | 字节跳动豆包 |
+| 火山方舟 Ark (Coding Plan) | anthropic | `ark.cn-beijing.volces.com/api/coding` | 字节跳动豆包编码套餐 |
 | DeepSeek | anthropic | `api.deepseek.com/anthropic` | |
 | Moonshot Kimi | openai | `api.moonshot.cn/v1` | |
 | 阿里通义 Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
