@@ -23,7 +23,6 @@ function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function
 // ============ 徽章渲染 ============
 function providerBadges(p) {
   var parts = [];
-  if (p.tags && p.tags.indexOf('coding-plan') >= 0) parts.push('<span class="badge badge-coding">Coding Plan</span>');
   if (p.tags && p.tags.indexOf('aggregator') >= 0) parts.push('<span class="badge badge-aggr">聚合</span>');
   if (p.tags && p.tags.indexOf('local') >= 0) parts.push('<span class="badge badge-local">本地</span>');
   var fmt = (p.apiFormat || '').toLowerCase();
@@ -37,12 +36,13 @@ function providerOptionText(p) {
   // <option> 不支持 HTML，用纯文本符号
   var brand = p.brand || p.name;
   var bits = [];
-  if (p.tags && p.tags.indexOf('coding-plan') >= 0) bits.push('Coding Plan');
   if (p.apiFormat === 'openai') bits.push('OpenAI');
   else if (p.apiFormat === 'anthropic') bits.push('Anthropic');
   else if (p.apiFormat === 'gemini') bits.push('Gemini');
+  if (p.tags && p.tags.indexOf('aggregator') >= 0) bits.push('聚合');
+  if (p.noAuth) bits.push('本地');
   var sub = bits.length ? '  ·  ' + bits.join(' / ') : '';
-  var marker = p.noAuth ? '  · 本地' : (p.hasKey ? '' : '  ⚠');
+  var marker = (!p.noAuth && !p.hasKey) ? '  ⚠' : '';
   return brand + sub + marker;
 }
 
@@ -302,10 +302,8 @@ function renderProviderForm(p) {
   var html = '<div class="form-grid">';
   html += '  <label>API Key' + (p.noAuth ? ' (可选)' : '') + '</label>';
   html += '  <input type="password" id="f-key-' + esc(p.id) + '" placeholder="' + (p.hasKey ? '(已保存，输入新值覆盖；留空不变)' : '填入 API Key') + '" autocomplete="new-password">';
-  html += '  <label>Base URL</label>';
-  html += '  <input type="text" id="f-url-' + esc(p.id) + '" value="' + esc(p.baseUrl) + '">';
-  html += '  <label>Endpoint Path</label>';
-  html += '  <input type="text" id="f-ep-' + esc(p.id) + '" value="' + esc(p.endpointPath || '') + '" placeholder="例如 /chat/completions 或 /v1/messages">';
+  html += '  <label>API URL</label>';
+  html += '  <input type="text" id="f-url-' + esc(p.id) + '" value="' + esc(p.baseUrl) + '" placeholder="完整 API 端点 URL，包含 /chat/completions 或 /v1/messages 等路径">';
   html += '  <label>API Format</label>';
   html += '  <select id="f-fmt-' + esc(p.id) + '"><option value="openai"' + (p.apiFormat === 'openai' ? ' selected' : '') + '>openai</option><option value="anthropic"' + (p.apiFormat === 'anthropic' ? ' selected' : '') + '>anthropic</option><option value="gemini"' + (p.apiFormat === 'gemini' ? ' selected' : '') + '>gemini</option></select>';
   html += '</div>';
@@ -361,7 +359,6 @@ async function saveProvider(pid) {
   var keyVal = document.getElementById('f-key-' + pid).value;
   var body = {
     baseUrl: document.getElementById('f-url-' + pid).value.trim(),
-    endpointPath: document.getElementById('f-ep-' + pid).value.trim(),
     apiFormat: document.getElementById('f-fmt-' + pid).value,
     enabled: true,
     extraModels: p.models.filter(function(m){return m.extra;}).map(function(m){return {id:m.id,name:m.name||m.id};}),

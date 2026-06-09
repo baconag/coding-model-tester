@@ -1,15 +1,13 @@
 {
   "type": "coding-model-tester.providers-default",
-  "version": 4,
-  "description": "主流服务商默认配置。用户配置（key、新增模型、enabled）存于 user-config.json，启动时与本文件合并。brand 用于 UI 显示品牌名，tags 用于徽章。",
+  "version": 5,
+  "description": "主流服务商默认配置。baseUrl 为完整请求 URL（Gemini 除外，Gemini baseUrl 为 API root）。用户配置（key、新增模型、enabled）存于 user-config.json。",
   "providers": {
     "qianfan": {
       "name": "百度千帆",
       "brand": "百度千帆",
-      "tags": ["coding-plan"],
-      "baseUrl": "https://qianfan.baidubce.com/v2/coding",
+      "baseUrl": "https://qianfan.baidubce.com/v2/coding/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "deepseek-v4-pro", "name": "DeepSeek V4 Pro" },
         { "id": "deepseek-v4-flash", "name": "DeepSeek V4 Flash" },
@@ -25,10 +23,8 @@
     "volcengine": {
       "name": "火山方舟",
       "brand": "火山方舟 Ark",
-      "tags": ["coding-plan"],
-      "baseUrl": "https://ark.cn-beijing.volces.com/api/coding",
+      "baseUrl": "https://ark.cn-beijing.volces.com/api/coding/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "ark-code-latest", "name": "Auto" },
         { "id": "doubao-seed-2-0-pro-260215", "name": "Doubao-Seed-2.0-pro" },
@@ -41,31 +37,11 @@
         { "id": "kimi-k2.6", "name": "Kimi K2.6" }
       ]
     },
-    "tencent-coding": {
+    "tencent": {
       "name": "腾讯云",
       "brand": "腾讯云 TokenHub",
-      "tags": ["coding-plan"],
-      "baseUrl": "https://api.lkeap.cloud.tencent.com/coding/v3",
+      "baseUrl": "https://api.lkeap.cloud.tencent.com/coding/v3/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
-      "models": [
-        { "id": "tc-code-latest", "name": "Auto (智能路由)" },
-        { "id": "glm-5", "name": "GLM 5" },
-        { "id": "kimi-k2.5", "name": "Kimi K2.5" },
-        { "id": "minimax-m2.5", "name": "MiniMax M2.5" },
-        { "id": "hunyuan-t1", "name": "Hunyuan T1" },
-        { "id": "hunyuan-turbos", "name": "Hunyuan TurboS" },
-        { "id": "hunyuan-2.0-instruct", "name": "HY 2.0 Instruct" },
-        { "id": "hunyuan-2.0-thinking", "name": "HY 2.0 Thinking" }
-      ]
-    },
-    "tencent-coding-anthropic": {
-      "name": "腾讯云",
-      "brand": "腾讯云 TokenHub",
-      "tags": ["coding-plan"],
-      "baseUrl": "https://api.lkeap.cloud.tencent.com/coding/anthropic",
-      "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "tc-code-latest", "name": "Auto (智能路由)" },
         { "id": "glm-5", "name": "GLM 5" },
@@ -80,10 +56,8 @@
     "deepseek": {
       "name": "DeepSeek",
       "brand": "DeepSeek",
-      "tags": [],
-      "baseUrl": "https://api.deepseek.com/anthropic",
+      "baseUrl": "https://api.deepseek.com/anthropic/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "deepseek-v4-pro", "name": "DeepSeek V4 Pro" },
         { "id": "deepseek-v4-flash", "name": "DeepSeek V4 Flash" },
@@ -93,10 +67,8 @@
     "moonshot": {
       "name": "Moonshot Kimi",
       "brand": "Moonshot Kimi",
-      "tags": [],
-      "baseUrl": "https://api.moonshot.cn/v1",
+      "baseUrl": "https://api.moonshot.cn/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "kimi-k2.6", "name": "Kimi K2.6" },
         { "id": "kimi-k2.5", "name": "Kimi K2.5" }
@@ -105,10 +77,8 @@
     "qwen": {
       "name": "通义千问",
       "brand": "阿里通义 Qwen",
-      "tags": [],
-      "baseUrl": "https://dashscope.aliyuncs.com/apps/anthropic",
+      "baseUrl": "https://dashscope.aliyuncs.com/apps/anthropic/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "qwen3.5-plus", "name": "Qwen3.5 Plus" },
         { "id": "qwen3-coder-plus", "name": "Qwen3 Coder Plus" }
@@ -117,10 +87,8 @@
     "zhipu": {
       "name": "智谱 GLM",
       "brand": "智谱 GLM",
-      "tags": [],
-      "baseUrl": "https://open.bigmodel.cn/api/anthropic",
+      "baseUrl": "https://open.bigmodel.cn/api/anthropic/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "glm-5", "name": "GLM 5" },
         { "id": "glm-5.1", "name": "GLM 5.1" },
@@ -130,10 +98,8 @@
     "minimax": {
       "name": "MiniMax",
       "brand": "MiniMax",
-      "tags": [],
-      "baseUrl": "https://api.minimaxi.com/anthropic",
+      "baseUrl": "https://api.minimaxi.com/anthropic/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "MiniMax-M2.7", "name": "MiniMax M2.7" },
         { "id": "MiniMax-M2.5", "name": "MiniMax M2.5" }
@@ -142,10 +108,8 @@
     "stepfun": {
       "name": "阶跃 StepFun",
       "brand": "阶跃 StepFun",
-      "tags": [],
-      "baseUrl": "https://api.stepfun.com/v1",
+      "baseUrl": "https://api.stepfun.com/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "step-3.5-flash", "name": "Step 3.5 Flash" }
       ]
@@ -153,10 +117,8 @@
     "xiaomi": {
       "name": "小米 MiMo",
       "brand": "小米 MiMo",
-      "tags": [],
-      "baseUrl": "https://api.xiaomimimo.com/anthropic",
+      "baseUrl": "https://api.xiaomimimo.com/anthropic/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "mimo-v2-flash", "name": "MiMo V2 Flash" }
       ]
@@ -164,10 +126,8 @@
     "youdaozhiyun": {
       "name": "有道智云",
       "brand": "有道智云",
-      "tags": [],
-      "baseUrl": "https://openapi.youdao.com/llmgateway/api/v1",
+      "baseUrl": "https://openapi.youdao.com/llmgateway/api/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "deepseek-chat", "name": "DeepSeek Chat" },
         { "id": "deepseek-reasoner", "name": "DeepSeek Reasoner" }
@@ -176,10 +136,8 @@
     "openai": {
       "name": "OpenAI",
       "brand": "OpenAI",
-      "tags": [],
-      "baseUrl": "https://api.openai.com/v1",
+      "baseUrl": "https://api.openai.com/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "gpt-5.4", "name": "GPT-5.4" },
         { "id": "gpt-5.2", "name": "GPT-5.2" },
@@ -190,10 +148,8 @@
     "anthropic": {
       "name": "Anthropic Claude",
       "brand": "Anthropic Claude",
-      "tags": [],
-      "baseUrl": "https://api.anthropic.com",
+      "baseUrl": "https://api.anthropic.com/v1/messages",
       "apiFormat": "anthropic",
-      "endpointPath": "/v1/messages",
       "models": [
         { "id": "claude-sonnet-4-5-20250929", "name": "Claude Sonnet 4.5" },
         { "id": "claude-sonnet-4-6", "name": "Claude Sonnet 4.6" },
@@ -203,10 +159,8 @@
     "gemini": {
       "name": "Google Gemini",
       "brand": "Google Gemini",
-      "tags": [],
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
       "apiFormat": "gemini",
-      "endpointPath": "",
       "models": [
         { "id": "gemini-3-pro-preview", "name": "Gemini 3 Pro" },
         { "id": "gemini-3.1-pro-preview", "name": "Gemini 3.1 Pro" },
@@ -217,9 +171,8 @@
       "name": "OpenRouter",
       "brand": "OpenRouter",
       "tags": ["aggregator"],
-      "baseUrl": "https://openrouter.ai/api/v1",
+      "baseUrl": "https://openrouter.ai/api/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "anthropic/claude-sonnet-4.5", "name": "Claude Sonnet 4.5" },
         { "id": "anthropic/claude-opus-4.6", "name": "Claude Opus 4.6" },
@@ -230,10 +183,8 @@
     "github-copilot": {
       "name": "GitHub Copilot",
       "brand": "GitHub Copilot",
-      "tags": [],
-      "baseUrl": "https://api.individual.githubcopilot.com",
+      "baseUrl": "https://api.individual.githubcopilot.com/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "models": [
         { "id": "gpt-5-mini", "name": "GPT-5 mini" },
         { "id": "claude-haiku-4.5", "name": "Claude Haiku 4.5" },
@@ -245,9 +196,8 @@
       "name": "Ollama",
       "brand": "Ollama",
       "tags": ["local"],
-      "baseUrl": "http://localhost:11434/v1",
+      "baseUrl": "http://localhost:11434/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "noAuth": true,
       "models": [
         { "id": "qwen3-coder-next", "name": "Qwen3-Coder-Next" },
@@ -258,9 +208,8 @@
       "name": "LM Studio",
       "brand": "LM Studio",
       "tags": ["local"],
-      "baseUrl": "http://localhost:1234/v1",
+      "baseUrl": "http://localhost:1234/v1/chat/completions",
       "apiFormat": "openai",
-      "endpointPath": "/chat/completions",
       "noAuth": true,
       "models": []
     }

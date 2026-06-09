@@ -44,7 +44,6 @@ function getMergedProviders() {
       tags: Array.isArray(d.tags) ? d.tags.slice() : [],
       baseUrl: u.baseUrl || d.baseUrl,
       apiFormat: u.apiFormat || d.apiFormat,
-      endpointPath: u.endpointPath !== undefined ? u.endpointPath : (d.endpointPath || ''),
       apiKey: u.apiKey || '',
       noAuth: !!d.noAuth,
       enabled: u.enabled !== undefined ? !!u.enabled : false,
@@ -62,7 +61,6 @@ function getMergedProviders() {
       tags: Array.isArray(u.tags) ? u.tags.slice() : [],
       baseUrl: u.baseUrl || '',
       apiFormat: u.apiFormat || 'openai',
-      endpointPath: u.endpointPath || '',
       apiKey: u.apiKey || '',
       noAuth: !!u.noAuth,
       enabled: !!u.enabled,
@@ -74,10 +72,8 @@ function getMergedProviders() {
 }
 
 function buildEndpoint(provider) {
-  const base = (provider.baseUrl || '').replace(/\/+$/, '');
-  const ep = provider.endpointPath || '';
-  if (!ep) return base;
-  return base + (ep.startsWith('/') ? ep : '/' + ep);
+  // baseUrl 存完整 endpoint。Gemini 在其嵌套项外部拼接。
+  return (provider.baseUrl || '').replace(/\/+$/, '');
 }
 
 // ============ OpenAI 协议流式 ============
@@ -307,7 +303,7 @@ app.get('/api/providers', (req, res) => {
   const merged = getMergedProviders();
   const list = Object.values(merged).map(p => ({
     id: p.id, name: p.name, brand: p.brand, tags: p.tags || [],
-    baseUrl: p.baseUrl, endpointPath: p.endpointPath,
+    baseUrl: p.baseUrl,
     apiFormat: p.apiFormat, noAuth: p.noAuth, enabled: p.enabled,
     hasKey: !!p.apiKey, custom: !!p.custom, models: p.models
   }));
@@ -323,14 +319,14 @@ app.get('/api/providers/:id', (req, res) => {
 });
 
 // 保存单个 provider 用户配置
-// body: { apiKey, baseUrl, endpointPath, apiFormat, enabled, extraModels, removedModelIds, name }
+// body: { apiKey, baseUrl, apiFormat, enabled, extraModels, removedModelIds, name }
 app.post('/api/providers/:id', (req, res) => {
   const id = req.params.id;
   const cfg = loadUserConfig();
   cfg.providers = cfg.providers || {};
   const cur = cfg.providers[id] || {};
   const b = req.body || {};
-  const allowed = ['apiKey', 'baseUrl', 'endpointPath', 'apiFormat', 'enabled', 'extraModels', 'removedModelIds', 'name', 'noAuth'];
+  const allowed = ['apiKey', 'baseUrl', 'apiFormat', 'enabled', 'extraModels', 'removedModelIds', 'name', 'noAuth'];
   for (const k of allowed) if (b[k] !== undefined) cur[k] = b[k];
   cfg.providers[id] = cur;
   saveUserConfig(cfg);
@@ -344,7 +340,7 @@ app.post('/api/providers', (req, res) => {
   const cfg = loadUserConfig();
   cfg.providers = cfg.providers || {};
   cfg.providers[b.id] = {
-    name: b.name, baseUrl: b.baseUrl, endpointPath: b.endpointPath || '',
+    name: b.name, baseUrl: b.baseUrl,
     apiFormat: b.apiFormat || 'openai', apiKey: b.apiKey || '', enabled: !!b.enabled,
     noAuth: !!b.noAuth, extraModels: b.extraModels || []
   };

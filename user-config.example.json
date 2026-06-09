@@ -9,6 +9,10 @@
       "apiKey": "YOUR_ARK_KEY_HERE",
       "enabled": true
     },
+    "tencent": {
+      "apiKey": "sk-sp-YOUR_TOKENHUB_KEY_HERE",
+      "enabled": true
+    },
     "openai": {
       "apiKey": "sk-YOUR_OPENAI_KEY_HERE",
       "enabled": true

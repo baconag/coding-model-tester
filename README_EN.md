@@ -1,6 +1,6 @@
 # 🚀 Coding Model Tester
 
-> **Multi-provider LLM coding benchmark tool** · Streaming · Real-time scoring · 19 providers built-in
+> **Multi-provider LLM coding benchmark tool** · Streaming · Real-time scoring · 18 providers built-in
 
 English · [中文](./README.md)
 
@@ -12,7 +12,7 @@ English · [中文](./README.md)
 
 ## ✨ Highlights
 
-- 🌐 **19 built-in providers** — Qianfan / Volcengine Ark / Tencent Coding Plan / DeepSeek / Moonshot / Qwen / Zhipu GLM / MiniMax / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
+- 🌐 **18 built-in providers** — Qianfan / Volcengine Ark / Tencent Cloud / DeepSeek / Moonshot / Qwen / Zhipu GLM / MiniMax / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
 - 🔌 **Three API formats** — OpenAI / Anthropic / Gemini, auto-detected per provider
 - 📊 **Complete metrics** — Total time, TTFB (time-to-first-byte), throughput (tok/s), success rate, error details
 - 🏆 **Smart composite scoring** — SuccessRate(25%) + Speed(35%) + TTFB(20%) + Throughput(20%), with rankings
@@ -80,27 +80,26 @@ Pick a provider from the dropdown → tick the models to compare → **Start**.
 
 ## 📋 Built-in Providers
 
-| Provider | Format | Default URL | Tags |
-|----------|--------|-------------|------|
-| Baidu Qianfan | openai | `qianfan.baidubce.com/v2/coding` | `Coding Plan` |
-| Volcengine Ark | anthropic | `ark.cn-beijing.volces.com/api/coding` | `Coding Plan` |
-| Tencent Cloud TokenHub | openai | `api.lkeap.cloud.tencent.com/coding/v3` | `Coding Plan` |
-| Tencent Cloud TokenHub | anthropic | `api.lkeap.cloud.tencent.com/coding/anthropic` | `Coding Plan` |
-| DeepSeek | anthropic | `api.deepseek.com/anthropic` | |
-| Moonshot Kimi | openai | `api.moonshot.cn/v1` | |
-| Alibaba Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
-| Zhipu GLM | anthropic | `open.bigmodel.cn/api/anthropic` | |
-| MiniMax | anthropic | `api.minimaxi.com/anthropic` | |
-| StepFun | openai | `api.stepfun.com/v1` | |
-| Xiaomi MiMo | anthropic | `api.xiaomimimo.com/anthropic` | |
-| Youdao | openai | `openapi.youdao.com/llmgateway/api/v1` | |
-| OpenAI | openai | `api.openai.com/v1` | |
-| Anthropic | anthropic | `api.anthropic.com` | |
-| Google Gemini | gemini | `generativelanguage.googleapis.com/v1beta` | |
-| OpenRouter | openai | `openrouter.ai/api/v1` | `Aggregator` |
-| GitHub Copilot | openai | `api.individual.githubcopilot.com` | |
-| Ollama | openai | `localhost:11434/v1` | `Local` |
-| LM Studio | openai | `localhost:1234/v1` | `Local` |
+| Provider | Format | Default URL |
+|----------|--------|-------------|
+| Baidu Qianfan | openai | `qianfan.baidubce.com/v2/coding/chat/completions` |
+| Volcengine Ark | anthropic | `ark.cn-beijing.volces.com/api/coding/v1/messages` |
+| Tencent Cloud TokenHub | openai | `api.lkeap.cloud.tencent.com/coding/v3/chat/completions` |
+| DeepSeek | anthropic | `api.deepseek.com/anthropic/v1/messages` |
+| Moonshot Kimi | openai | `api.moonshot.cn/v1/chat/completions` |
+| Alibaba Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic/v1/messages` |
+| Zhipu GLM | anthropic | `open.bigmodel.cn/api/anthropic/v1/messages` |
+| MiniMax | anthropic | `api.minimaxi.com/anthropic/v1/messages` |
+| StepFun | openai | `api.stepfun.com/v1/chat/completions` |
+| Xiaomi MiMo | anthropic | `api.xiaomimimo.com/anthropic/v1/messages` |
+| Youdao | openai | `openapi.youdao.com/llmgateway/api/v1/chat/completions` |
+| OpenAI | openai | `api.openai.com/v1/chat/completions` |
+| Anthropic | anthropic | `api.anthropic.com/v1/messages` |
+| Google Gemini | gemini | `generativelanguage.googleapis.com/v1beta` |
+| OpenRouter | openai | `openrouter.ai/api/v1/chat/completions` |
+| GitHub Copilot | openai | `api.individual.githubcopilot.com/chat/completions` |
+| Ollama | openai | `localhost:11434/v1/chat/completions` |
+| LM Studio | openai | `localhost:1234/v1/chat/completions` |
 
 > Want more? Just edit [providers-default.json](./providers-default.json) — no code changes.
 
@@ -142,9 +141,8 @@ Add an entry to [providers-default.json](./providers-default.json):
 ```json
 "myprovider": {
   "name": "My Provider",
-  "baseUrl": "https://api.example.com/v1",
+  "baseUrl": "https://api.example.com/v1/chat/completions",
   "apiFormat": "openai",
-  "endpointPath": "/chat/completions",
   "models": [
     { "id": "model-a", "name": "Model A" }
   ]
