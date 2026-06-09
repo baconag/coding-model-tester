@@ -89,6 +89,21 @@
         { "id": "MiniMax-M2.5", "name": "MiniMax M2.5" }
       ]
     },
+    "tencent": {
+      "name": "腾讯混元 (Hunyuan)",
+      "baseUrl": "https://api.hunyuan.cloud.tencent.com/v1",
+      "apiFormat": "openai",
+      "endpointPath": "/chat/completions",
+      "models": [
+        { "id": "hunyuan-turbos-latest", "name": "Hunyuan TurboS" },
+        { "id": "hunyuan-t1-latest", "name": "Hunyuan T1 (推理)" },
+        { "id": "hunyuan-a13b", "name": "Hunyuan A13B (混合推理)" },
+        { "id": "hunyuan-large", "name": "Hunyuan Large" },
+        { "id": "hunyuan-standard", "name": "Hunyuan Standard" },
+        { "id": "hunyuan-lite", "name": "Hunyuan Lite (免费)" },
+        { "id": "hunyuan-code", "name": "Hunyuan Code" }
+      ]
+    },
     "stepfun": {
       "name": "阶跃 StepFun",
       "baseUrl": "https://api.stepfun.com/v1",

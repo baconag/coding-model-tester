@@ -1,6 +1,6 @@
 # 🚀 Coding Model Tester
 
-> **Multi-provider LLM coding benchmark tool** · Streaming · Real-time scoring · 17 providers built-in
+> **Multi-provider LLM coding benchmark tool** · Streaming · Real-time scoring · 18 providers built-in
 
 English · [中文](./README.md)
 
@@ -12,7 +12,7 @@ English · [中文](./README.md)
 
 ## ✨ Highlights
 
-- 🌐 **17 built-in providers** — Qianfan / Volcengine Ark / DeepSeek / Moonshot / Qwen / Zhipu GLM / MiniMax / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
+- 🌐 **18 built-in providers** — Qianfan / Volcengine Ark / DeepSeek / Moonshot / Qwen / Zhipu GLM / MiniMax / Tencent Hunyuan / OpenAI / Anthropic / Gemini / OpenRouter / GitHub Copilot / Ollama / LM Studio ...
 - 🔌 **Three API formats** — OpenAI / Anthropic / Gemini, auto-detected per provider
 - 📊 **Complete metrics** — Total time, TTFB (time-to-first-byte), throughput (tok/s), success rate, error details
 - 🏆 **Smart composite scoring** — SuccessRate(25%) + Speed(35%) + TTFB(20%) + Throughput(20%), with rankings
@@ -89,6 +89,7 @@ Pick a provider from the dropdown → tick the models to compare → **Start**.
 | Alibaba Qwen | anthropic | `dashscope.aliyuncs.com/apps/anthropic` | |
 | Zhipu GLM | anthropic | `open.bigmodel.cn/api/anthropic` | |
 | MiniMax | anthropic | `api.minimaxi.com/anthropic` | |
+| Tencent Hunyuan | openai | `api.hunyuan.cloud.tencent.com/v1` | Tencent Cloud official LLM |
 | StepFun | openai | `api.stepfun.com/v1` | |
 | Xiaomi MiMo | anthropic | `api.xiaomimimo.com/anthropic` | |
 | Youdao | openai | `openapi.youdao.com/llmgateway/api/v1` | |
