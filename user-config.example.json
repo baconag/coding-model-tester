@@ -1,0 +1,17 @@
+{
+  "_comment": "复制本文件为 user-config.json，填入真实 API Key 即可。user-config.json 已被 .gitignore 排除。",
+  "providers": {
+    "qianfan": {
+      "apiKey": "YOUR_QIANFAN_KEY_HERE",
+      "enabled": true
+    },
+    "volcengine": {
+      "apiKey": "YOUR_ARK_KEY_HERE",
+      "enabled": true
+    },
+    "openai": {
+      "apiKey": "sk-YOUR_OPENAI_KEY_HERE",
+      "enabled": true
+    }
+  }
+}

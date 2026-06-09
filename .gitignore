@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# User secrets - NEVER commit
+user-config.json
+*.key
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

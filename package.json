@@ -1,0 +1,43 @@
+{
+  "name": "coding-model-tester",
+  "version": "3.0.0",
+  "description": "Multi-provider LLM coding benchmark tool with streaming metrics (TTFB, throughput, success rate) and composite scoring",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "llm",
+    "benchmark",
+    "coding-plan",
+    "openai",
+    "anthropic",
+    "gemini",
+    "deepseek",
+    "qianfan",
+    "volcengine",
+    "ark",
+    "moonshot",
+    "qwen",
+    "glm",
+    "performance",
+    "ttfb",
+    "streaming"
+  ],
+  "author": "baconag",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baconag/coding-model-tester.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baconag/coding-model-tester/issues"
+  },
+  "homepage": "https://github.com/baconag/coding-model-tester#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

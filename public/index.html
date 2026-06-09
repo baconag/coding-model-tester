@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coding Plan Model Test v3</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div><h1>Coding Plan Model Test v3</h1><div class="header-sub">Multi-Provider · Latency · TTFB · Throughput · Success Rate</div></div>
+  <div style="display:flex;gap:8px">
+    <button class="btn btn-ghost" onclick="openSettings()">⚙ 配置服务商 / KEY</button>
+  </div>
+</div>
+<div class="check-row" id="checkRow"></div>
+<div class="controls">
+<div class="ctrl"><label>Provider</label><select id="providerSelect" onchange="onProviderChange()"></select></div>
+<div class="ctrl"><label>Rounds</label><input type="number" id="rounds" value="3" min="1" max="10" style="width:64px"></div>
+<div class="ctrl"><label>Timeout(s)</label><input type="number" id="timeout" value="30" min="5" max="120" style="width:64px"></div>
+<div class="ctrl"><label>Prompt</label><select id="promptPreset"><option value="simple">Easy</option><option value="medium">Medium</option><option value="complex">Hard</option></select></div>
+<button class="btn btn-primary" id="btnStart" onclick="startTest()">Start</button>
+<button class="btn btn-danger" id="btnStop" onclick="stopTest()" style="display:none">Stop</button>
+<button class="btn btn-ghost" onclick="selectAll()">All</button>
+<button class="btn btn-ghost" onclick="deselectAll()">None</button>
+<span id="providerKeyStatus" style="margin-left:auto"></span>
+</div>
+<div class="status-bar hidden" id="statusBar"><div class="status-dot idle" id="statusDot"></div><span id="statusText">Ready</span><span class="status-sep">|</span><span id="statusProgress"></span><span class="status-sep">|</span><span id="statusElapsed"></span></div>
+<div class="results-table-wrap"><table class="results-table"><thead><tr><th class="col-score">Rank</th><th class="col-model">Model</th><th class="col-status">Status</th><th class="col-round">Rounds</th><th class="col-time">Avg Time</th><th class="col-ttfb">TTFB</th><th class="col-rate">Success</th><th class="col-tps">Throughput</th><th class="col-minmax">Min / Max</th><th class="col-error">Errors</th></tr></thead><tbody id="tableBody"><tr><td colspan="10"><div class="empty-state">选择模型并点击 Start。首次使用请先 ⚙ 配置 API KEY。</div></td></tr></tbody></table></div>
+<div class="score-footer hidden" id="scoreFooter"><h3>Scoring Formula</h3><div>Each metric normalized to 0-100 via min-max among successful models.</div><div style="margin-top:4px"><code>Score = SuccessRate x 0.25 + SpeedScore x 0.35 + TTFBScore x 0.20 + TPS x 0.20</code></div><div style="margin-top:4px;font-size:11px">Speed/TTFB lower is better; Throughput higher is better.</div><div id="scoreDetail"></div></div>
+</div>
+<div class="modal-mask" id="settingsModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>⚙ 服务商配置</h2>
+      <button class="btn btn-ghost" onclick="closeSettings()">✕ 关闭</button>
+    </div>
+    <div class="modal-body" id="settingsBody"></div>
+    <div class="modal-foot">
+      <span style="font-size:11px;color:var(--text-dim)">配置保存在 <code>user-config.json</code></span>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost" onclick="reloadProviders()">🔄 重新加载</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
