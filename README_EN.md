@@ -23,6 +23,30 @@ English · [中文](./README.md)
 
 ---
 
+## 📸 Screenshots
+
+**Main panel · Provider selection**
+
+![Provider selection](./docs/screenshots/01-provider-list.png)
+
+**Main panel · Benchmark dashboard (with rank badges)**
+
+![Dashboard](./docs/screenshots/04-dashboard.png)
+
+**Main panel · Composite scoring table**
+
+![Scoring](./docs/screenshots/05-scoring.png)
+
+**Settings modal · Provider configuration**
+
+![Provider config](./docs/screenshots/02-provider-config.png)
+
+**Settings modal · Key & model management**
+
+![Keys and models](./docs/screenshots/03-key-and-models.png)
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Clone & install

@@ -25,10 +25,25 @@
 
 ## 📸 截图预览
 
-界面分为两部分：
+**主面板 · 服务商选择**
 
-**主面板** — 选服务商 → 勾模型 → Start，实时表格展示各项指标和排名徽章。
-**设置弹窗** — 折叠卡片管理每个服务商的 Key / URL / 端点 / 模型列表。
+![服务商选择](./docs/screenshots/01-provider-list.png)
+
+**主面板 · 模型测试仪表盘（含排名徽章）**
+
+![仪表盘](./docs/screenshots/04-dashboard.png)
+
+**主面板 · 综合评分表**
+
+![评分](./docs/screenshots/05-scoring.png)
+
+**设置弹窗 · 服务商配置**
+
+![服务商配置](./docs/screenshots/02-provider-config.png)
+
+**设置弹窗 · KEY 与模型管理**
+
+![KEY与模型](./docs/screenshots/03-key-and-models.png)
 
 ---
 

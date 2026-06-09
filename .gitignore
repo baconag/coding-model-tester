@@ -7,6 +7,9 @@ user-config.json
 .env
 .env.local
 
+# Raw screenshot source (with non-ASCII names) - moved into docs/screenshots/
+image/
+
 # Logs
 *.log
 npm-debug.log*
